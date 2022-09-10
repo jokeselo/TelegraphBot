@@ -68,7 +68,7 @@ async def work_to_do(message: Message):
 
 async def upload(file):
     files = {'files': open(file, 'rb')}
-    r = requests.post("https://telegra.ph/upload", files=files)
+    r = requests.post("https://te.legra.ph/upload", files=files)
     response = r.json()
     if isinstance(response, list):
         error = response[0].get('error')
@@ -77,5 +77,5 @@ async def upload(file):
     if error:
         url = error
     else:
-        url = "https://telegra.ph" + response[0].get("src")
+        url = "https://te.legra.ph" + response[0].get("src")
     return url
